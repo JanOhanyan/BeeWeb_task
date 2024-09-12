@@ -12,7 +12,7 @@ This application allows users to register, log in, and manage workspaces. The ba
 - **Logout** (POST `/auth/logout`): Ends the user session.
 
 ### Workspace Management
-- **Create Workspace** (POST `/workspace/create`): Input: Workspace name and slug. Output: Workspace name, slug, user ID, and workspace ID.
+- **Create Workspace** (POST `/workspace`): Input: Workspace name and slug. Output: Workspace name, slug, user ID, and workspace ID.
 - **Get Workspaces** (GET `/workspace`): Returns an array of workspaces associated with the logged-in user.
 - **Check Slug Availability** (GET `/workspace/check?slug={slug}`): Checks if a workspace slug is available. If unavailable, returns 5 alternative slug suggestions.
 - **Delete Workspace** (DELETE `/workspace/{id}`): Deletes the workspace with the given ID.
