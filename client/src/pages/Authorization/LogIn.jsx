@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Card, Typography } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import Logo1 from "../../assets/images/logo1.png";
 import "./auth.css";
 
 const { Title } = Typography;

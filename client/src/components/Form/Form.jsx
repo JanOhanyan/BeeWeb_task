@@ -46,15 +46,16 @@ const FormComponent = ({ onClose }) => {
                     const errorData = await response.json();
                     throw new Error(errorData.message || 'An error occurred while processing the request');
                 }
+                window.location.reload();
 
             } else {
+                alert('Please enter a unique slug, select a free plan and try again');
                 setVariants(data.variants || []);
             }
         } catch (error) {
             console.error("Error submitting form:", error);
             setError(error.message); 
         }
-        window.location.reload();
     };
 
     const handleVariantClick = (variant) => {
