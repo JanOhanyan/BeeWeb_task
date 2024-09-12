@@ -65,7 +65,7 @@ const NavBar = () => {
   const loggedInMenu = (
     <Menu>
       <Menu.Item key="logout" onClick={handleLogout}>
-        Դուրս գալ
+        logout
       </Menu.Item>
     </Menu>
   );
