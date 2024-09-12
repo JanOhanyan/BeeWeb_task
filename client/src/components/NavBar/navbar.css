@@ -1,0 +1,27 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  padding-top: 3rem;
+  height: 4rem;
+}
+
+.logo-container{
+  align-items: center;
+  margin-right: 31rem;
+  margin-left: -53rem; 
+  margin-top: 1rem;
+}
+
+.logo {
+  width: 340px; 
+  height: auto;
+  padding: 1rem;
+}
+
+.avatar-container {
+  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+}

@@ -12,8 +12,6 @@ import {
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { UserLoginDto, UserRegistrationDto } from './dto/auth.dto';
-import { LocalGuard } from './guards/local.guard';
-import { JwtAuthGuard } from './guards/jwt.guard';
 import { RefreshTokenGuard } from './guards/ refresh-token.guard';
 
 @Controller('auth')
@@ -21,7 +19,6 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  @UseGuards(LocalGuard)
   async login(
     @Body() userLoginBody: UserLoginDto,
     @Res({ passthrough: true }) res: Response,
@@ -38,13 +35,6 @@ export class AuthController {
     return {
       accessToken: user.accessToken,
     };
-  }
-
-  @Get('status')
-  @UseGuards(JwtAuthGuard)
-  status(@Req() req: Request) {
-    console.log('Inside Auth Controller Status');
-    console.log(req.user);
   }
 
   @Post('register')

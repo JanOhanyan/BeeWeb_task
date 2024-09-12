@@ -1,0 +1,52 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 800px; 
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+}
+
+.form-container {
+  flex: 1;
+  max-width: 350px; 
+}
+
+.logo-containerr {
+  display: flex;
+  align-items: center; 
+  margin: 150px 10px; 
+  width: 300px;
+}
+
+.auth-logo {
+  max-width: 300px;
+  height: auto;
+}
+
+.input {
+  width: 100%;
+}
+
+.ant-input, .ant-input-password {
+  width: 100%;
+}
+
+.login-error {
+  color: red;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  font-size: 14px;
+}

@@ -48,7 +48,6 @@ export class WorkspaceController {
   @UseGuards(JwtAuthGuard)
   async delete(@Req() req: Request, @Param('id') id: string) {
     const user = req.user as any;
-    console.log(user);
     return await this.workspaceService.deleteById({ userId: user._id, id });
   }
 }

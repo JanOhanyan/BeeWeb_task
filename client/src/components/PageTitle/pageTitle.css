@@ -1,0 +1,13 @@
+.page-title {
+    background-color: #4682B4;
+    height: 80px;
+    margin-top: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-title h1 {
+    text-align: left;
+    font-size: 2rem;
+    margin-left: 12rem;
+    line-height: 2.3;
+}

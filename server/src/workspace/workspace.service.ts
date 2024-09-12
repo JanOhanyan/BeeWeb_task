@@ -98,6 +98,6 @@ export class WorkspaceService {
       throw new ForbiddenException('You are not owner of this workspace');
     }
 
-    return await this.workspaceModel.findByIdAndDelete(workspace);
+    return await this.workspaceModel.findByIdAndDelete(workspaceId);
   }
 }
