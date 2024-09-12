@@ -64,4 +64,28 @@ export class AuthService {
     return savedUser;
   }
 
+  async refresh(refreshToken: string) {
+    try {
+      const data = this.jwtService.verify(refreshToken, {
+        secret: process.env.JWT_REFRESH_SECRET,
+      });
+      const user = await this.userService.findById(data._id);
+      if (!user) {
+        throw new ConflictException('User does not exist');
+      }
+
+      const payload = {
+        _id: user._id,
+        fullName: user.fullName,
+        email: user.email,
+      };
+      const newAccessToken = this.jwtService.sign(payload, {
+        secret: process.env.JWT_ACCESS_SECRET,
+        expiresIn: '1h',
+      });
+      return { accessToken: newAccessToken };
+    } catch (error) {
+      return null;
+    }
+  }
 }

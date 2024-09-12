@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   Post,
@@ -13,13 +14,14 @@ import { AuthService } from './auth.service';
 import { UserLoginDto, UserRegistrationDto } from './dto/auth.dto';
 import { LocalGuard } from './guards/local.guard';
 import { JwtAuthGuard } from './guards/jwt.guard';
+import { RefreshTokenGuard } from './guards/ refresh-token.guard';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  //   @UseGuards(LocalGuard)
+  @UseGuards(LocalGuard)
   async login(
     @Body() userLoginBody: UserLoginDto,
     @Res({ passthrough: true }) res: Response,
@@ -56,7 +58,17 @@ export class AuthController {
     return user;
   }
 
-  //   @Get('refresh')
+  @Get('refresh')
+  @UseGuards(RefreshTokenGuard)
+  async refresh(@Req() req: Request) {
+    const user = req['user'];
 
-  //   @Delete('logout')
+    return user;
+  }
+
+  @Delete('logout')
+  async logout(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+    res.clearCookie('refreshToken');
+    return { success: true };
+  }
 }
